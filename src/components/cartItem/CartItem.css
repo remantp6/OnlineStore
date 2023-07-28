@@ -1,0 +1,43 @@
+.cart-item-list .cart-item-top img{
+    width: 140px;
+    height:auto;
+}
+.cart-item-list .cart-item-top {
+    border: 1px solid rgba(232, 229, 229, 0.856);
+    margin: 30px 10px;
+}
+.cart-item-list .cart-item-top p{
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+.cart-item-list .cart-item-top span{
+    font-size: 18px;
+    font-weight: 400;
+}
+.cart-item-list .cart-item-top .quantity-counter button{
+    border: none;
+    background-color: transparent;
+    padding: 4px;
+    font-size: 26px;
+    
+}
+.cart-item-list .cart-item-top .quantity-counter{
+    border: 1px solid rgb(214, 212, 212);
+    width: 50%;
+    line-height: 35px;
+    text-align: center;
+}
+.cart-item-list .cart-item-bottom .check-out-btn button{
+    border: none;
+    background-color: dodgerblue;
+    color: white;
+     padding: 6px 16px; 
+     font-size: 16px; 
+     text-transform: uppercase;
+}
+.cart-item-list .cart-item-bottom .back-to-shopping button, .empty-cart-message button{
+    background-color: transparent;
+    padding: 6px 8px;
+    border: 1px solid rgb(210, 209, 209);
+}

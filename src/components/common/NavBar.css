@@ -1,0 +1,7 @@
+.navbar .container-fluid a span{
+    color: rgb(219, 7, 7);
+}
+.navbar-toggler {
+    padding: 0px;
+    border: none;
+}

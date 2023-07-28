@@ -1,0 +1,26 @@
+body{
+    min-height: 100vh;
+    position: relative;
+}
+.sticky-footer{
+    position: absolute;
+    top: 100%;
+    right:0px;
+    left:0px;
+    background-color: #262626;
+    padding: 50px 0px;
+}
+.sticky-footer h6{
+    color: white;
+    padding-bottom: 10px;
+}
+.sticky-footer li{
+    list-style-type: none;
+    font-size: large;
+    color: rgb(166, 162, 162);
+    padding: 1px;
+}
+.sticky-footer li i{
+    color: rgb(212, 5, 5);
+    padding-right: 10px;
+}

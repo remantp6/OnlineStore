@@ -1,0 +1,8 @@
+.search-bar form{
+    width: 200px;
+    position: relative;
+}
+.search-icon{
+    position: absolute;
+    right: 10px;
+}
