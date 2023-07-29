@@ -14,5 +14,8 @@
   padding: 6px 12px;
 }
 .search-product-list .search-item:hover {
-  background-color: rgb(27, 252, 252);
+  background-color: grey;
+}
+.search-product-list .no-search-result p {
+  color: rgb(92, 91, 91);
 }

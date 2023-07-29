@@ -49,7 +49,7 @@ const SearchBar = () => {
           )}
         </div>
       </Form>
-      <SearchedProduct filteredData={filteredData}/>
+      <SearchedProduct filteredData={filteredData} searchTerm={searchTerm}/>
     </div>
     </>
   );

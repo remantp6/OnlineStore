@@ -1,0 +1,9 @@
+.dropdown-filter{
+    width: 200px;
+    height: 140px;
+}
+select{
+    border: 1 px solid rgb(202, 200, 200);
+    width: 100%;
+    height: 35px;
+}

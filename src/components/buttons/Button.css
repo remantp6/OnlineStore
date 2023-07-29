@@ -6,3 +6,6 @@
      font-weight: 600;
      border-radius: 5px;
 }
+.btn button:hover{
+     background-color: rgba(89, 5, 167, 0.823);
+}

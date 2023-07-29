@@ -16,11 +16,11 @@ const ProductDetailsComponent = () => {
   const { data: product, isLoading, error } = useGetProductByIdQuery(id);
 
   const handleClick = (product) => {
-    dispatch(addToCart(product))
+    dispatch(addToCart(product));
   };
-  const handleNavigate = () =>{
+  const handleNavigate = () => {
     navigate("/cart/items");
-  }
+  };
 
   return (
     <>
@@ -47,8 +47,15 @@ const ProductDetailsComponent = () => {
                         Rating: {product.rating.rate}
                       </p>
                       <p className="my-2 fs-5">Price:$ {product.price}</p>
-                      <Button onClick={() => handleClick(product)} label="Add To Cart" />
-                      <Button onClick ={handleNavigate} label="Go To Cart" />
+                      <div className="d-flex">
+                        <Button
+                          onClick={() => handleClick(product)}
+                          label="Add To Cart"
+                        />
+                        <div className="mx-3">
+                          <Button onClick={handleNavigate} label="Go To Cart" />
+                        </div>
+                      </div>
                     </div>
                   </Col>
                 </Row>

@@ -52,7 +52,7 @@ const cartSlice = createSlice({
           totalQuantity: 0,
         }
       );
-      state.cartTotalAmount = totalAmount;
+      state.cartTotalAmount = parseFloat(totalAmount.toFixed(2));
       state.cartTotalQuantity = totalQuantity;
     },
     increaseCartItem: (state, action) =>  {

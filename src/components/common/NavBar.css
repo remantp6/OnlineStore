@@ -5,3 +5,7 @@
     padding: 0px;
     border: none;
 }
+.navbar-expand-lg .navbar-nav .active{
+    width: max-content;
+    border-bottom: 2px solid rgb(0, 255, 221);
+}

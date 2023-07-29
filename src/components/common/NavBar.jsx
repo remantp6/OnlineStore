@@ -24,10 +24,10 @@ const NavBar = () => {
               <Nav.Link as={NavLink} to="/">
                 Home
               </Nav.Link>
-              <Nav.Link className="px-lg-4" as={NavLink} to="/contact">
+              <Nav.Link className="px-lg-2">
                 Contact
               </Nav.Link>
-              <Nav.Link>
+              <Nav.Link as={NavLink} to="/cart/items">
                 <i className="bi bi-cart3"></i>(<span>{items.length}</span>)
               </Nav.Link>
             </Nav>
