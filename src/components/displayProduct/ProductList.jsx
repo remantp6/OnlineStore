@@ -49,7 +49,7 @@ const ProductList = () => {
           ) : error ? (
             <p>An error occured.</p>
           ) : (
-            <Row xs={1} md={2} lg={3} className="g-5">
+            <Row xs={1} md={2} lg={4} className="g-2">
               {filteredProducts.map((product) => (
                 <Col key={product.id}>
                   <Card className="p-3">
