@@ -1,18 +1,19 @@
 .product-list-wrapper{
-    padding: 70px 0;
+    padding: 60px 0;
 }
 .product-list-wrapper .card{
-    height: 490px;
+    height: 450px;
     border: 2px solid rgb(232, 230, 230);
     box-shadow: 0 0 3px 3px rgba(210, 208, 208, 0.3);
 }
 .product-list-wrapper .card .card-img, .card-img-top {
-    height: 65%;
+    height: 60%;
 }
 .product-list-wrapper .card .card-body .h5{
-    font-size: 16px;
+    font-size: 14px;
+    color: rgb(93, 92, 92);
 }
 .product-list-wrapper .card p{
-     font-size: 16px;
+     font-size: 15px;
      font-weight: 500;
 }

@@ -49,14 +49,14 @@ const ProductList = () => {
           ) : error ? (
             <p>An error occured.</p>
           ) : (
-            <Row xs={1} md={2} lg={4} className="g-2">
+            <Row xs={1} md={2} lg={4} className="g-3">
               {filteredProducts.map((product) => (
                 <Col key={product.id}>
-                  <Card className="p-3">
-                    <Card.Img variant="top" src={product.image} />
-                    <Card.Body className="p-0">
-                      <Card.Title className="mt-3">{product.title}</Card.Title>
-                      <Card.Text className="mb-2">$ {product.price}</Card.Text>
+                  <Card className="pt-3">
+                    <Card.Img variant="top" className="px-4" src={product.image} />
+                    <Card.Body className="p-0 px-3">
+                      <Card.Title className="mt-3 mb-0">{product.title}</Card.Title>
+                      <Card.Text className="my-1">$ {product.price}</Card.Text>
                       <Button
                         label="View Details"
                         onClick={() => handleNavigate(product)}
