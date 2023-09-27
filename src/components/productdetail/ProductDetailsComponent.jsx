@@ -33,20 +33,20 @@ const ProductDetailsComponent = () => {
             <p className="fs-5">An error occured.</p>
           ) : (
             product && (
-              <div className="product-content px-3 px-lg-5">
+              <div className="product-content px-md-3 px-lg-5">
                 <Row>
                   <Col md={2}>
                     <img src={product.image} alt="img" />
                   </Col>
                   <Col md={10}>
                     <div className="product-content-article px-2 px-md-3 px-md-5">
-                      <h6>{product.category}</h6>
+                      <h6 className="pt-4 pb-1">{product.category}</h6>
                       <h5>{product.title}</h5>
-                      <p className="mb-0 desc">{product.description}</p>
-                      <p className="mb-0 my-2 fs-5">
+                      <p className="mb-0 desc py-1">{product.description}</p>
+                      <p className="mb-0 my-1 fs-5">
                         Rating: {product.rating.rate}
                       </p>
-                      <p className="my-2 fs-5">Price:$ {product.price}</p>
+                      <p className="mb-3 mt-1 fs-5">Price:$ {product.price}</p>
                       <div className="d-flex">
                         <Button
                           onClick={() => handleClick(product)}
