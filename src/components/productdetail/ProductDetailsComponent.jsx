@@ -1,8 +1,6 @@
 import React from "react";
-import "./ProductDetailsComponent.css";
 import { useGetProductByIdQuery } from "../../services/productApi";
 import { useNavigate, useParams } from "react-router-dom";
-import { Col, Container, Row } from "react-bootstrap";
 import Title from "../title/Title";
 import Button from "../buttons/Button";
 import { useDispatch } from "react-redux";
@@ -18,51 +16,49 @@ const ProductDetailsComponent = () => {
   const handleClick = (product) => {
     dispatch(addToCart(product));
   };
+
   const handleNavigate = () => {
     navigate("/cart/items");
   };
 
   return (
     <>
-      <div className="product-details pt-4 pt-lg-5">
-        <Container>
+      <div className="">
+        <div className="lg:mt-[65px] mb-[8px]">
           <Title titleProps="Product Details" />
           {isLoading ? (
-            <p className="fs-5">Loading...</p>
+            <p className="text-lg">Loading...</p>
           ) : error ? (
-            <p className="fs-5">An error occured.</p>
+            <p className="text-lg">An error occurred.</p>
           ) : (
             product && (
-              <div className="product-content px-md-3 px-lg-5">
-                <Row>
-                  <Col md={2}>
-                    <img src={product.image} alt="img" />
-                  </Col>
-                  <Col md={10}>
-                    <div className="product-content-article px-2 px-md-3 px-md-5">
-                      <h6 className="pt-4 pb-1">{product.category}</h6>
-                      <h5>{product.title}</h5>
-                      <p className="mb-0 desc py-1">{product.description}</p>
-                      <p className="mb-0 my-1 fs-5">
-                        Rating: {product.rating.rate}
-                      </p>
-                      <p className="mb-3 mt-1 fs-5">Price:$ {product.price}</p>
-                      <div className="d-flex">
-                        <Button
-                          onClick={() => handleClick(product)}
-                          label="Add To Cart"
-                        />
-                        <div className="mx-3">
-                          <Button onClick={handleNavigate} label="Go To Cart" />
-                        </div>
-                      </div>
-                    </div>
-                  </Col>
-                </Row>
+              <div className="product-content flex flex-col lg:flex-row items-center justify-center gap-8 px-4 lg:px-10 py-8 lg:py-10">
+                {/* Image section */}
+                <div className="w-full lg:w-1/3 flex justify-center">
+                  <img
+                    className="w-full max-w-xs object-cover"
+                    src={product.image}
+                    alt={product.title}
+                  />
+                </div>
+
+                {/* Product details section */}
+                <div className="w-full lg:w-[50%] flex flex-col justify-center">
+                  <h6 className="pt-4 pb-1 text-gray-500">{product.category}</h6>
+                  <h5 className="text-2xl font-semibold">{product.title}</h5>
+                  <p className="py-2 text-gray-700">{product.description}</p>
+                  <p className="my-2 text-lg font-medium">Rating: {product.rating.rate}</p>
+                  <p className="my-2 text-lg font-medium">Price: $ {product.price}</p>
+                  
+                  <div className="flex gap-4 mt-4">
+                    <Button onClick={() => handleClick(product)} label="Add To Cart" />
+                    <Button onClick={handleNavigate} label="Go To Cart" />
+                  </div>
+                </div>
               </div>
             )
           )}
-        </Container>
+        </div>
       </div>
     </>
   );

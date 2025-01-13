@@ -4,8 +4,8 @@ import "./Title.css";
 const Title = ({ titleProps }) => {
   return (
     <>
-      <div className='title text-md-center'>
-        <h2 className='pb-1 pb-md-3'>{titleProps}</h2>
+      <div className='title mb-4 lg:mb-10'>
+        <h2 className='text-2xl font-bold text-center tracking-widest'>{titleProps}</h2>
       </div>
     </>
   )

@@ -5,7 +5,7 @@ import { Col, Container, Row } from "react-bootstrap";
 const Footer = () => {
   return (
     <>
-      <div className="sticky-footer">
+      <div className="sticky-footer py-8">
         <Container>
           <Row xs={2} md={3} lg={4} className="gx-4">
             <Col>

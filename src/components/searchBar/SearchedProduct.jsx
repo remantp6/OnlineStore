@@ -18,7 +18,7 @@ const SearchedProduct = ({ filteredData, searchTerm }) => {
           <div className="search-items-wrapper">
             {filteredData.map((prodTitle) => (
               <div
-                className="search-item"
+                className="search-item hover:bg-gray-200 cursor-pointer"
                 key={prodTitle.id}
                 onClick={() => handleNavigate(prodTitle)}
               >
@@ -28,7 +28,7 @@ const SearchedProduct = ({ filteredData, searchTerm }) => {
           </div>
         ) : (
           <div className="no-search-result">
-            {searchTerm !== "" && <p className="fs-3">No product match.</p>}
+            {searchTerm !== "" && <p className="fs-3 text-red-500">No product match.</p>}
           </div>
         )}
       </div>

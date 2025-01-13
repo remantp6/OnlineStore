@@ -1,17 +1,13 @@
 import React, { useState, useEffect } from "react";
-import "./ProductList.css";
-import Card from "react-bootstrap/Card";
 import { useGetAllProductQuery } from "../../services/productApi";
-import { Col, Container, Row } from "react-bootstrap";
 import Title from "../title/Title";
 import Button from "../buttons/Button";
 import { useNavigate } from "react-router-dom";
 import Filter from "../filter/Filter";
 
 const ProductList = () => {
-
   const [categories, setCategories] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState("All Categories"); // Default to showing all products
+  const [selectedCategory, setSelectedCategory] = useState("All Categories");
   const navigate = useNavigate();
   const { data, isLoading, error } = useGetAllProductQuery();
 
@@ -25,7 +21,7 @@ const ProductList = () => {
   }, [data]);
 
   const handleNavigate = (product) => {
-    //navigate to product-details page
+    // Navigate to product-details page
     navigate(`/product-details/${product.id}`);
   };
 
@@ -34,10 +30,11 @@ const ProductList = () => {
       ? data
       : data.filter((product) => product.category === selectedCategory)
     : [];
+
   return (
     <>
-      <div className="product-list-wrapper">
-        <Container>
+      <div className="product-list-wrapper px-2 md:px-4 mt-10 lg:mt-20 mb-16 lg:mb-24">
+        <div className="container">
           <Title titleProps="Products" />
           <Filter
             categories={categories}
@@ -47,27 +44,37 @@ const ProductList = () => {
           {isLoading ? (
             <p>Loading...</p>
           ) : error ? (
-            <p>An error occured.</p>
+            <p>An error occurred.</p>
           ) : (
-            <Row xs={1} md={2} lg={4} className="g-3">
+            <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-x-16 gap-y-16 md:gap-y-20">
               {filteredProducts.map((product) => (
-                <Col key={product.id}>
-                  <Card className="pt-3">
-                    <Card.Img variant="top" className="px-4" src={product.image} />
-                    <Card.Body className="p-0 px-3">
-                      <Card.Title className="mt-3 mb-0">{product.title}</Card.Title>
-                      <Card.Text className="my-1">$ {product.price}</Card.Text>
-                      <Button
-                        label="View Details"
-                        onClick={() => handleNavigate(product)}
-                      />
-                    </Card.Body>
-                  </Card>
-                </Col>
+                <div key={product.id} className="flex justify-center">
+                  <div className="bg-white shadow-md rounded-lg w-full max-w-[390px] flex flex-col">
+                    <img
+                      className="rounded-t-lg w-[190px] h-[170px] md:w-[250px] md:h-[280px] mx-auto"
+                      src={product.image}
+                      alt={product.title}
+                    />
+                    <div className="p-4 flex flex-col justify-between flex-grow">
+                      <h5 className="text-gray-900 text-md font-medium mb-2">
+                        {product.title}
+                      </h5>
+                      <p className="text-gray-700 text-base mb-4">
+                        $ {product.price}
+                      </p>
+                      <div className="mt-auto">
+                        <Button
+                          label="View Details"
+                          onClick={() => handleNavigate(product)}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
               ))}
-            </Row>
+            </div>
           )}
-        </Container>
+        </div>
       </div>
     </>
   );

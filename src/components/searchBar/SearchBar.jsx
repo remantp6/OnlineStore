@@ -45,7 +45,7 @@ const SearchBar = () => {
           {!searchTerm ? (
             <i className="bi bi-search"></i>
           ) : (
-            <i className="bi bi-x fs-3" onClick={handleClose}></i>
+            <i className="bi bi-x fs-3 cursor-pointer" onClick={handleClose}></i>
           )}
         </div>
       </Form>

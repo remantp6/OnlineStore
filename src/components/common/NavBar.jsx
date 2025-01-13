@@ -7,7 +7,6 @@ import Navbar from "react-bootstrap/Navbar";
 import SearchBar from "../searchBar/SearchBar";
 import { useSelector } from "react-redux";
 
-
 const NavBar = () => {
   const items = useSelector((state) => state.cart.cartItems);
   return (
@@ -17,16 +16,16 @@ const NavBar = () => {
           <Navbar.Brand className="fs-4" as={NavLink} to="/">
             Online<span>Store</span>
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls="navbarScroll" className="px-md-4"/>
+          <Navbar.Toggle aria-controls="navbarScroll" className="px-md-4" />
           <Navbar.Collapse id="navbarScroll" className="justify-content-end">
-            <SearchBar/>
+            <div className="hidden lg:block">
+              <SearchBar />
+            </div>
             <Nav className="ps-lg-4 fs-5">
               <Nav.Link as={NavLink} to="/">
                 Home
               </Nav.Link>
-              <Nav.Link className="px-lg-2">
-                Contact
-              </Nav.Link>
+              <Nav.Link className="px-lg-2">Contact</Nav.Link>
               <Nav.Link as={NavLink} to="/cart/items">
                 <i className="bi bi-cart3"></i>(<span>{items.length}</span>)
               </Nav.Link>
