@@ -25,7 +25,7 @@ const SearchBar = () => {
     } else {
       setFilteredData([]);
     }
-  }, [searchTerm]);
+  }, [searchTerm, filteredProducts]);
 
   const handleClose = () => {
     setSearchTerm("");
