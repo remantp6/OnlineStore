@@ -25,7 +25,8 @@ const SearchBar = () => {
     } else {
       setFilteredData([]);
     }
-  }, [searchTerm, filteredProducts]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchTerm]);
 
   const handleClose = () => {
     setSearchTerm("");

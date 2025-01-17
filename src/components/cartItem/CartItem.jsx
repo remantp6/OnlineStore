@@ -40,115 +40,97 @@ const CartItem = () => {
 
   useEffect(() => {
     dispatch(getCartSubTotal());
-  }, [cartItems, dispatch]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [cartItems]);
 
   const handleNavigate = () => {
     navigate("/");
   };
 
   return (
-    <>
-      <div className="cart-item-list">
-        <h2 className="text-center py-3 py-md-4 mb-0">Shopping Cart</h2>
-        <Container className="pb-3 pb-md-5">
-          {cartItems.length === 0 ? (
-            <div className="empty-cart-message text-center">
-              <img
-                src={emptyCart}
-                alt="cart-img"
-                style={{ width: 600, height: "auto" }}
-              />
-              <p className="fs-4 my-3">No Products in the Cart</p>
-              <div className="back-to-shopping px-2">
-                <button onClick={handleNavigate}>
-                  <i className="bi bi-chevron-left"></i>
-                  <span>Continue Shopping</span>
-                </button>
-              </div>
+    <div className="container mx-auto px-2 md:px-4 py-5">
+      <h2 className="text-center mb-5 text-lg font-bold">
+      {
+        cartItems.length === 0 ? 'Shopping Cart' :'Your Cart'
+      }
+      </h2>
+      <Container>
+        {cartItems.length === 0 ? (
+          <div className="flex flex-col items-center justify-center">
+            <img src={emptyCart} alt="cart-img" className="w-full max-w-lg mx-auto" />
+            <p className="text-xl my-4">No Products in the Cart</p>
+            <div className="px-2">
+              <button className="bg-transparent py-2 px-4 border border-gray-300 rounded-sm" onClick={handleNavigate}>
+                <i className="bi bi-chevron-left"></i>
+                <span>Continue Shopping</span>
+              </button>
             </div>
-          ) : (
-            <div className="cart-Item">
-              {cartItems?.map((cartProduct) => (
-                // eslint-disable-next-line react/jsx-key
-                <div className="cart-item-wrapper">
-                  <div className="cart-item-top p-4" key={cartProduct.id}>
-                    <Row>
-                        <i
-                          className="bi bi-x-lg"
-                          onClick={() => handleRemoveFromCart(cartProduct)}
-                        ></i>
-                      <Col md={5} className="d-md-flex">
-                        <img src={cartProduct.image} alt="img" />
-                        <h5 className="pb-3 px-md-3 pt-md-3">
-                          {cartProduct.title}
-                        </h5>
-                      </Col>
-                      <Col md={2} className="pt-md-3">
-                        <p className="pb-5">Price</p>
-                        <span>$ {cartProduct.price} </span>
-                      </Col>
-                      <Col md={3} className="pt-md-3">
-                        <p className="pb-5">Quantity</p>
-                        <div className="quantity-counter">
-                          <div>
-                            <i
-                              className="bi bi-plus-lg"
-                              onClick={() => handleIncreaseCart(cartProduct)}
-                            ></i>
-                          </div>
-                          <span>{cartProduct.cartQuantity}</span>
-                          <div>
-                            <i
-                              className="bi bi-dash-lg"
-                              onClick={() => handleDecreaseCart(cartProduct)}
-                            ></i>
-                          </div>
-                        </div>
-                      </Col>
-                      <Col md={2} className="pt-md-3">
-                        <p className="pb-5">Total</p>
-                        <span>
-                          $ {parseFloat((cartProduct.price * cartProduct.cartQuantity).toFixed(2))}
-                        </span>
-                      </Col>
-                    </Row>
-                  </div>
+          </div>
+        ) : (
+          <div>
+            {cartItems?.map((cartProduct) => (
+              <div className="border border-gray-100 rounded-md shadow-sm my-8 p-3" key={cartProduct.id}>
+                <Row>
+                  <i
+                    className="bi bi-x-lg cursor-pointer flex justify-end mb-4"
+                    onClick={() => handleRemoveFromCart(cartProduct)}
+                  ></i>
+                  <Col md={5} className="flex flex-col md:flex-row">
+                    <img src={cartProduct.image} alt="img" className="w-36 mx-auto mb-4 sm:mb-0" />
+                    <h5 className="pb-4 md:px-3 md:pt-3 text-lg font-semibold">{cartProduct.title}</h5>
+                  </Col>
+                  <Col md={2} className="pt-md-3 flex md:flex-col justify-between md:justify-start items-center">
+                    <p className="text-base md:text-lg font-medium uppercase md:pb-5">Price</p>
+                    <span className="text-lg font-normal">$ {cartProduct.price}</span>
+                  </Col>
+                  <Col md={3} className="pt-md-3 flex justify-between md:flex-col md:justify-start my-2 md:my-0">
+                    <p className="text-base md:text-lg font-medium uppercase md:pb-5">Quantity</p>
+                    <div className="flex items-center space-x-4">
+                      <i className="bi bi-plus-lg cursor-pointer" onClick={() => handleIncreaseCart(cartProduct)}></i>
+                      <span>{cartProduct.cartQuantity}</span>
+                      <i className="bi bi-dash-lg cursor-pointer" onClick={() => handleDecreaseCart(cartProduct)}></i>
+                    </div>
+                  </Col>
+                  <Col md={2} className="pt-md-3 flex justify-between md:flex-col md:justify-start">
+                    <p className="text-base md:text-lg font-medium uppercase md:pb-5">Total</p>
+                    <span className="text-lg font-normal">
+                      $ {parseFloat((cartProduct.price * cartProduct.cartQuantity).toFixed(2))}
+                    </span>
+                  </Col>
+                </Row>
+              </div>
+            ))}
+            <div className="flex flex-col md:flex-row justify-between md:items-center">
+              <div className="flex items-center mb-4 md:mb-0">
+                <Button label="Clear Cart" onClick={() => handleClearCart()} />
+                <div className="px-2">
+                  <button className="bg-transparent py-2 px-4 border border-gray-300 rounded-sm" onClick={handleNavigate}>
+                    <i className="bi bi-chevron-left"></i>
+                    <span>Continue Shopping</span>
+                  </button>
                 </div>
-              ))}
-              <div className="cart-item-bottom px-2 d-md-flex justify-content-between">
-                <div className="d-flex">
-                  <Button
-                    label="Clear Cart"
-                    onClick={() => handleClearCart()}
-                  />
-                  <div className="back-to-shopping px-2">
-                    <button onClick={handleNavigate}>
-                      <i className="bi bi-chevron-left"></i>
-                      <span>Continue Shopping</span>
-                    </button>
-                  </div>
+              </div>
+              <div>
+                <div className="flex justify-between items-center">
+                  <p className="text-base md:text-lg font-medium">Total Quantity</p>
+                  <h6 className="text-lg font-normal">{cartTotalQuantity}</h6>
                 </div>
-                <div className="check-out-section">
-                  <div className="total_quantity d-md-flex">
-                    <p>Total Quantity</p>
-                    <h6 className="ms-auto">{cartTotalQuantity}</h6>
-                  </div>
-                  <div className="amount-section d-md-flex">
-                    <p>SubTotal</p>
-                    <h6 className="ms-auto">$ {cartTotalAmount}</h6>
-                  </div>
-                  <p>Taxes and shipping are calculated at checkout</p>
-                  <div className="check-out-btn mb-2">
-                    <button>Check Out</button>
-                  </div>
+                <div className="flex justify-between items-center py-[1px] mb:py-0">
+                  <p className="text-base md:text-lg font-medium md:pb-5">SubTotal</p>
+                  <h6 className="text-lg font-normal">$ {cartTotalAmount}</h6>
+                </div>
+                <p className="text-sm font-medium text-gray-600 pb-2 mb:pb-0">Taxes and shipping are calculated at checkout</p>
+                <div className="check-out-btn md:mb-2">
+                  <button className="bg-blue-500 text-white py-2 px-4 text-lg uppercase rounded-sm">Check Out</button>
                 </div>
               </div>
             </div>
-          )}
-        </Container>
-      </div>
-    </>
+          </div>
+        )}
+      </Container>
+    </div>
   );
+  
 };
 
 export default CartItem;
