@@ -1,7 +1,7 @@
 ## An E-commerce App
 ### Live Demo
 ```
-https://ecommerce-app-onlinestore.netlify.app/cart/items
+https://ecommerce-app-onlinestore.netlify.app
 ```
 ### Technologies used
 
