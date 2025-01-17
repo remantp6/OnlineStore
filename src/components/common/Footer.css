@@ -1,12 +1,12 @@
-body{
+/* body{
     min-height: 100vh;
     position: relative;
-}
+} */
 .sticky-footer{
-    position: absolute;
+    /* position: absolute;
     top: 100%;
     right:0px;
-    left:0px;
+    left:0px; */
     background-color: #262626;
 }
 .sticky-footer h6{

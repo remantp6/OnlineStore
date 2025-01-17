@@ -33,7 +33,7 @@ const ProductList = () => {
 
   return (
     <>
-      <div className="product-list-wrapper px-2 md:px-4 mt-10 lg:mt-20 mb-16 lg:mb-24">
+      <div className="product-list-wrapper px-2 md:px-4 my-10 md:my-14 lg:my-20 ">
         <div className="container">
           <Title titleProps="Products" />
           <Filter
