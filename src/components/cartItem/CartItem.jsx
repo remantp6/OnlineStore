@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React, { useEffect } from "react";
 import emptyCart from "../../assets/images/emptyCart.png";
 import "./CartItem.css";
@@ -39,7 +40,7 @@ const CartItem = () => {
 
   useEffect(() => {
     dispatch(getCartSubTotal());
-  }, [cartItems]);
+  }, [cartItems, dispatch]);
 
   const handleNavigate = () => {
     navigate("/");
@@ -68,6 +69,7 @@ const CartItem = () => {
           ) : (
             <div className="cart-Item">
               {cartItems?.map((cartProduct) => (
+                // eslint-disable-next-line react/jsx-key
                 <div className="cart-item-wrapper">
                   <div className="cart-item-top p-4" key={cartProduct.id}>
                     <Row>

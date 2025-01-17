@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React from "react";
 import Carousel from "react-bootstrap/Carousel";
 import mainBanner1 from "../../assets/images/main-banner-1.jpg";
