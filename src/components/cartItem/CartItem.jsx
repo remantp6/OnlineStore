@@ -83,7 +83,7 @@ const CartItem = () => {
                     <p className="text-base md:text-lg font-medium uppercase md:pb-5">Price</p>
                     <span className="text-lg font-normal">$ {cartProduct.price}</span>
                   </Col>
-                  <Col md={3} className="pt-md-3 flex justify-between md:flex-col md:justify-start my-2 md:my-0">
+                  <Col md={3} className="flex justify-between md:flex-col md:justify-start my-2 md:my-0">
                     <p className="text-base md:text-lg font-medium uppercase md:pb-5">Quantity</p>
                     <div className="flex items-center space-x-4">
                       <i className="bi bi-plus-lg cursor-pointer" onClick={() => handleIncreaseCart(cartProduct)}></i>
