@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect } from "react";
-import "./searchBar.css";
+import './SearchBar.css';
 import Form from "react-bootstrap/Form";
 import { useGetAllProductQuery } from "../../services/ProductApi";
 import SearchedProduct from "./SearchedProduct";
