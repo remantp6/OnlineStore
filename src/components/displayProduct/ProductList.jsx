@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect } from "react";
-import { useGetAllProductQuery } from "../../services/productApi";
+import { useGetAllProductQuery } from "../../services/ProductApi";
 import Title from "../title/Title";
 import Button from "../buttons/Button";
 import { useNavigate } from "react-router-dom";

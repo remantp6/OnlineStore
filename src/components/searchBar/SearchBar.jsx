@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import "./searchBar.css";
 import Form from "react-bootstrap/Form";
-import { useGetAllProductQuery } from "../../services/productApi";
+import { useGetAllProductQuery } from "../../services/ProductApi";
 import SearchedProduct from "./SearchedProduct";
 
 const SearchBar = () => {
