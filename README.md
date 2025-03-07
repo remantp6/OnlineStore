@@ -1,7 +1,7 @@
 ## An E-commerce App
 ### Live Demo
 ```
-https://ecommerce-app-onlinestore.netlify.app
+https://ecommerce-remantp6.netlify.app/
 ```
 ### Technologies used
 
